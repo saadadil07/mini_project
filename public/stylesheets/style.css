@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Gilroy;
+    font-size: 2vw;
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: silver;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1{
+    position: absolute;
+    top: 10px;
+    text-align: center;
+}
+
+#create_posts{
+    position: absolute;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#login{
+    color: white;
+    cursor: pointer;
+}
+
+#register{
+    color: white;
+    cursor: pointer;
+}
+
+input[type='submit']{
+    cursor: pointer;
+}
+
+textarea{
+    width: 300px;
+    height: 50px;
+    color: black;
+}
+
+textarea::placeholder{
+    color: grey;
+}
+
+#createPost{
+    font-size: 15px;
+    padding: 5px 10px;
+}
+
+a{
+    color: black;
+}
+
+#logout{
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: white;
+}

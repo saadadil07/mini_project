@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body>
+
+    <h1> welcome to profile </h1>
+    <form action="/createPost" method="post">
+        <textarea placeholder="what's on your mind" name="content"></textarea> <br>
+        <input type="submit" placeholder="Create Post" class="bg-blue-500 cursor-pointer">
+    </form>
+
+    <a href="/feed" class="text-blue-400"> Check Posts </a>
+
+    <a id="logout" href="/logout"> logout </a>
+    
+</body>
+</html>
