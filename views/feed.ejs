@@ -9,16 +9,19 @@
 </head>
 <body>
 
-        <h2> Your Posts Here : </h2>
-        <div>
-             <% if(Posts.length>0){ %> 
-                 <% Posts.forEach(e=>{ %>
-                    <h2> <%= e.content %> </h2>
+        <h2 class="absolute top-[20px]"> Your Posts Here : </h2>
+        <% if(Posts.length>0){ %> 
+            <% Posts.forEach(post=>{ %>
+                <div class="mb-4 w-1/3 px-2" id="post-div"> 
+                    <h5 class="text-blue-400 text-[1.5vw]"> @<%= User.username %> </h5>
+                    <h2> <%= post.content %> </h2>
+                    <h3 class="text-[1.4vw] text-green-500"> <b> <%= post.likes.length %> </b> Likes </h3>
+                    <h4 class="flex gap-[1vw]"> <a class="text-[1.4vw] text-yellow-500" href="/like/<%= post._id %>"> <%= post.likes.indexOf(User._id)===-1 ? 'Like' : 'Unlike' %> </a>  <a class="text-[1.4vw] text-zinc-400" href="/edit">Edit</a><a class="text-[1.4vw] ml-[15vw] text-red-500" href="/delete/<%= post %>">Delete</a> </h4>
+                </div>
              <% }) %>
              <% }else{ %> 
                 <h2> No Posts Yet </h2>
              <% } %> 
-        </div>
 
 
 </body>

@@ -39,7 +39,25 @@ app.post('/createPost', async (req,res)=>{
 
 app.get('/feed', async (req,res)=>{
     let posts = await postModel.find()
-    res.render('feed',{Posts:posts})
+    let email = jwt.verify(req.cookies.token,'secret')
+    let user = await userModel.findOne({email})
+    res.render('feed',{Posts:posts, User: user})
+})
+
+
+app.get('/like/:postid',isLoggedIn, async (req,res)=>{
+    let postid = req.params.postid
+    let post = await postModel.findOne({_id:postid})
+    if(post.likes.indexOf(req.userid)===-1){
+        post.likes.push(req.userid)
+        await post.save()
+        res.redirect('/feed')
+    }
+    else{
+        post.likes.splice(post.likes.indexOf(req.userid),1)
+        await post.save()
+        res.redirect('/feed')
+    }
 })
 
 
@@ -101,6 +119,7 @@ async function isLoggedIn(req,res,next){
        if(req.cookies.token){
         let email = jwt.verify(req.cookies.token,'secret')
         let user = await userModel.findOne({email})
+        req.userid = user._id
         if(email===user.email){
             next()
          }

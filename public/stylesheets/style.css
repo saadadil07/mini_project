@@ -18,10 +18,18 @@ html, body{
     flex-direction: column;
 }
 
+#post-div{
+    border: 2px solid white;
+}
+
 h1{
     position: absolute;
     top: 10px;
     text-align: center;
+}
+
+h5{
+    font-size: 1vw;
 }
 
 #create_posts{
