@@ -37,7 +37,7 @@ app.post('/createPost', async (req,res)=>{
 })
 
 
-app.get('/feed', async (req,res)=>{
+app.get('/feed',isLoggedIn, async (req,res)=>{
     let posts = await postModel.find()
     let email = jwt.verify(req.cookies.token,'secret')
     let user = await userModel.findOne({email})
@@ -58,6 +58,18 @@ app.get('/like/:postid',isLoggedIn, async (req,res)=>{
         await post.save()
         res.redirect('/feed')
     }
+})  
+
+
+app.get('/edit/:postid', async (req,res)=>{
+    let post = await postModel.findOne({_id: req.params.postid})
+    res.render('edit',{Post:post})   
+})
+
+
+app.get('/delete/:postid', isLoggedIn, async (req,res)=>{
+    let deletedPost = await postModel.findOneAndDelete({_id: req.params.postid})
+    res.redirect('/feed')
 })
 
 

@@ -16,11 +16,12 @@
                     <h5 class="text-blue-400 text-[1.5vw]"> @<%= User.username %> </h5>
                     <h2> <%= post.content %> </h2>
                     <h3 class="text-[1.4vw] text-green-500"> <b> <%= post.likes.length %> </b> Likes </h3>
-                    <h4 class="flex gap-[1vw]"> <a class="text-[1.4vw] text-yellow-500" href="/like/<%= post._id %>"> <%= post.likes.indexOf(User._id)===-1 ? 'Like' : 'Unlike' %> </a>  <a class="text-[1.4vw] text-zinc-400" href="/edit">Edit</a><a class="text-[1.4vw] ml-[15vw] text-red-500" href="/delete/<%= post %>">Delete</a> </h4>
+                    <h4 class="flex gap-[1vw]"> <a class="text-[1.4vw] text-yellow-500" href="/like/<%= post._id %>"> <%= post.likes.indexOf(User._id)===-1 ? 'Like' : 'Unlike' %> </a>  <a class="text-[1.4vw] text-zinc-400" href="/edit/<%= post._id %>"> Edit </a>  <a class="text-[1.4vw] ml-[15vw] text-red-500" href="/delete/<%= post._id %>">Delete</a> </h4>
                 </div>
              <% }) %>
              <% }else{ %> 
                 <h2> No Posts Yet </h2>
+                <a class="border-2 rounded-[1vw] px-[1vw] mt-[2vw]" href="/profile"> Create Post </a>
              <% } %> 
 
 
