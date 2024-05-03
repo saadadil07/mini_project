@@ -9,11 +9,11 @@
 </head>
 <body>
     
-    <form action="/update/Post._id" method="post">
-        <input type="text" name="content" value="<%= Post.content %>"><br>
-        <input type="submit" value="Update"> <br>
-        <a class="text-white text-[1.2vw] underline" href="/feed"> go back </a>
+    <form action="/update/<%= Post._id %>" method="post">
+        <textarea class="font-[bold] text-black" type="text" name="content"> <%= Post.content %> </textarea><br>
+        <input class="bg-white font-bold rounded-md px-[2vw] ml-[7vw] font-[bold] text-black" type="submit" value="Update"> <br>
     </form>
+    <a class="text-white mt-[5vw] text-[1.2vw] underline" href="/feed"> go back </a>
 
 </body>
 </html>

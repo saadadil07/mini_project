@@ -73,6 +73,14 @@ app.get('/delete/:postid', isLoggedIn, async (req,res)=>{
 })
 
 
+app.post('/update/:postid', async (req,res)=>{
+    let updatedPost = await postModel.findOneAndUpdate({_id: req.params.postid},{content:req.body.content})
+    // res.send(updatedPost)
+    res.redirect('/feed')
+    // res.send(req.params.postid)
+})
+
+
 app.post('/register', (req,res)=>{
     let {username,name,email,password,age} = req.body
     if(email==='' || password===''){
